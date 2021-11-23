@@ -1,4 +1,4 @@
-![alt text](https://github.com/kevinKuppens/acnt/blob/main/mockup_presentation.png?raw=true)
+![alt text](https://github.com/kevinKuppens/acnt/blob/master/mockup_presentation.png?raw=true)
 # acnt
 
 
