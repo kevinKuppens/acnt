@@ -1,15 +1,8 @@
 import { createContext } from "react";
-export type userContext = {
-    isLoggedIn: boolean,
-    user ?: {
-        id: number,
-        firstname: string, 
-        lastname: string,
-        picture: string
-    }
-}
-const UserContext = createContext({
-    isLoggedIn: false
+import { userContext } from "../types";
+
+const UserContext = createContext<userContext>({
+    isLoggedIn: false, setUser: ()=> console.warn('No User Set')
 })
 
 export default UserContext;

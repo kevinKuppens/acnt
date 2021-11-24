@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CtaButton from "./ui/CtaButton";
 import InfoAdds from "./ui/InfoAdds";
+import TextBanner from "./ui/TextBanner";
 
 const Landing = () => {
-
+    const navigate = useNavigate();
     return (
         <div className="text-white">
-            <div 
-                className="w-full  text-4xl pt-8 pb-8 border-white border-b">
-                <p className="text-left">Keep track of account from anywhere, at anytime.</p>
-            </div>
+            <TextBanner value="Keep track of account from anywhere, at anytime."/>
             <div className="w-full">
                 <div className=" text-xs bg-white bg-opacity-20 mt-8 py-1 text-white rounded rounded-md flex justify-around items-center">
                     <img className="w-12" src="../icones/card.svg" alt="card icon" />
@@ -29,7 +27,7 @@ const Landing = () => {
                 <CtaButton 
                     size="w-full"
                     value="Sign up"
-                    redirect={() => { window.location.href='/register'}}/>
+                    redirect={() => { navigate('/register')}}/>
                 <p className="text-md font-light mt-4">Already have an account ? <Link to="/login" className="font-bold">Sign In</Link></p>
                 <p className="text-xs font-light mt-6 px-16">By signing up you are agreeing to our <span className="font-bold">Terms</span> and <span className="font-bold">Privacy policy</span></p>
             </div>

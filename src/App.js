@@ -3,20 +3,30 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing.tsx';
 import NavBar from './components/NavBar';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import UserContext from './contexts/UserContext';
+import Register from './components/Register';
+import Home from './components/Home';
+import Success from './components/Success';
+import Login from './components/Login';
 
 function App() {
-  const [userContext, setUserContext] = useState({isLoggedIn: false})
-  // useEffect(() => setTimeout(() => setUserContext({isLoggedIn : true, user:{ id:1, firstname : "John", lastname: "Doe", picture: "johnDoe.jpg"}}), 3000), [])
+  const [user, setUser] = useState()
+  const [ token, setToken] =  useState();
+
+
   return (
     <div className="App h-screen w-screen bg-blue-background relative">
-      <UserContext.Provider value={userContext}>
-      <div className="container w-11/12 px-4 mx-auto h-screen tewt-white relative z-10">
+      <UserContext.Provider value={{ user, setUser}}>
+      <div className="container w-11/12 px-4 mx-auto h-screen tewt-white relative z-10 text-white">
         <Router>
-            <NavBar/>
+            <NavBar token={token}/>
           <Routes>
+            <Route path="/" element={<Home token={token}/>} />
             <Route path="/hero" element={<Landing/>}/>
+            <Route path="/register" element={<Register/>}/>
+            <Route path="/success" element={<Success/>}/>
+            <Route path="/login" element={<Login setToken={(value)=> {setToken(value)}}/>}/>
           </Routes>
         </Router>
       </div>
